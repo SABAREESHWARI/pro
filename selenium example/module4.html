@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://demo.opencart.com/" />
+<title>module4</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">module4</td></tr>
+</thead><tbody>
+<!--//open the url-->
+<tr>
+	<td>open</td>
+	<td>https://demo.opencart.com/</td>
+	<td></td>
+</tr>
+<!--//verify title-->
+<tr>
+	<td>verifyTitle</td>
+	<td>Your Store</td>
+	<td></td>
+</tr>
+<!--//enter windows in search text box-->
+<tr>
+	<td>type</td>
+	<td>name=search</td>
+	<td>windows</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//button[@type='button'])[4]</td>
+	<td></td>
+</tr>
+<!--//validating title-->
+<tr>
+	<td>assertTitle</td>
+	<td>Search - windows</td>
+	<td></td>
+</tr>
+<!--//select PC from the dropdown-->
+<tr>
+	<td>select</td>
+	<td>name=category_id</td>
+	<td>label=regexp:\s+PC</td>
+</tr>
+<!--//click on check box-->
+<tr>
+	<td>click</td>
+	<td>name=sub_category</td>
+	<td></td>
+</tr>
+<!--//click search-->
+<tr>
+	<td>clickAndWait</td>
+	<td>id=button-search</td>
+	<td></td>
+</tr>
+<!--//validate the text-->
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Products meeting the search criteria</td>
+	<td></td>
+</tr>
+<!--//select monitor-->
+<tr>
+	<td>select</td>
+	<td>name=category_id</td>
+	<td>label=regexp:\s+Monitors</td>
+</tr>
+<!--//select search button-->
+<tr>
+	<td>clickAndWait</td>
+	<td>id=button-search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=description</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=button-search</td>
+	<td></td>
+</tr>
+<!--//validate text-->
+<tr>
+	<td>assertTextPresent</td>
+	<td>Apple Cinema 30</td>
+	<td></td>
+</tr>
+<!--//click add to cart-->
+<tr>
+	<td>click</td>
+	<td>css=div.button-group &gt; button[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<!--//add to wish list-->
+<tr>
+	<td>click</td>
+	<td>css=div.btn-group &gt; button.btn.btn-default</td>
+	<td></td>
+</tr>
+<!--//verifying the text-->
+<tr>
+	<td>assertTextPresent</td>
+	<td> Apple Cinema 30</td>
+	<td></td>
+</tr>
+<!--//close the browser-->
+<tr>
+	<td>close</td>
+	<td></td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

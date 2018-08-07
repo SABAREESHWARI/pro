@@ -1,0 +1,39 @@
+IDE
+----
+1.	Launch the application browser
+2.	Open the web page in the browser
+3.	Verify the title of the page. The test should stop execution if the title of the page is not matching with the expected title.
+4.	Enter first name
+5.	Ensure that the alert box displays the message “First Name must be filled out” upon no data entered in the first name textbox
+6.	Enter last name
+7.	Ensure that the alert box displays the message “Last Name must be filled out” upon no data entered in the last name text box
+8.	Enter Email 
+9.	Enter Mobile
+10.	Ensure that the alert box displays the message “Enter numeric value” upon character data entered in the Mobile textbox 
+11.	Ensure that the alert box displays the message “Enter 10 digit Mobile number” upon wrong data entered in the  Mobile text box
+12.	Select the  Category of recipes interested from dropdown as Non-Veg
+13.	Select the city preference as Mumbai
+14.	Select Mode of the learning as In house training
+15.	Select interested course duration as 6 months
+16.	Click on Enquire Now!!! button
+17.	Verify the alert box displays message “Enquiry details must be filled out”
+18.	Enter the enquiry details 
+19.	Click on Enquire Now!!!  button
+20.	Verify the message “ Thank you for submitting the online recipe class Enquiry “
+---------------------------
+Webdriver:
+a.	Locate the UI elements using appropriate locators & fill the data in the form.
+b.	Ensure that the test script execution pauses for 10 seconds before executing next instruction.
+c.	Verify the title of the page.
+d.	Verify there is a text on the web page “Online Cooking School”
+e.	Verify that the user has selected Non-Veg  from the Category of recipes interested dropdown box.
+f.	Verify that the user has selected Mumbai as city from the city preference dropdown box.
+g.	Verify that the user has selected ‘In house training’ from the mode of learning dropdown box.
+h.	Verify that the user has selected ‘6 months’ from the interested course duration dropdown box.
+i.	Click on Enquire Now!!!  button
+j.	Ensure that the alert box displays the message “Thank you for submitting the online recipe class Enquiry”
+k.	Verify the text “Our location representative will contact you soon” after submission of form.
+l.	Click on the hyperlink Download our Recipe class Brochure
+m.	Pause the execution for 15 sec.
+n.	Verify the text “Recipe class Brochure is sent to your registered mail id”
+o.	Close the browser window

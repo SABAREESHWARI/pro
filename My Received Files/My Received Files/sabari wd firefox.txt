@@ -1,0 +1,214 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
+
+
+
+public class WDFirefox {
+
+	public static void main(String[] args) throws InterruptedException {
+	
+
+		System.setProperty("webdriver.firefox.bin",
+				"C:/Users/sprerana/AppData/Local/Mozilla Firefox/firefox.exe");
+        FirefoxProfile profile = new FirefoxProfile();
+        profile.setPreference("network.proxy.type", 1);
+        profile.setPreference("network.proxy.http", "10.219.96.26");
+        profile.setPreference("network.proxy.http_port", 8080);
+        profile.setPreference("network.proxy.ssl", "10.219.96.26");
+        profile.setPreference("network.proxy.ssl_port", 8080);
+        
+        FirefoxDriver driver = new FirefoxDriver(profile);
+				//launch browser and application
+			    String baseUrl = "https://demo.opencart.com/";
+			    driver.get(baseUrl);
+				
+			    if(driver.getTitle().contentEquals("Your Store"))
+			    {
+			    	System.out.println("Title Verified	Your Store");
+			    }
+			    else
+			    {
+			    	System.out.println("Title Not Verified");
+			    }
+			    
+			    Thread.sleep(1000);
+			   
+			    //mandatopry fields to be filled
+			    
+			    driver.findElement(By.xpath(".//*[@id='top-links']/ul/li[2]/a/span[2]")).click();
+			    driver.findElement(By.linkText("Register")).click();
+			    
+			    driver.findElement(By.id("input-email")).sendKeys("prerana@gmail.com");
+			    driver.findElement(By.id("input-telephone")).clear();
+			    driver.findElement(By.id("input-telephone")).sendKeys("7095734335");
+			    
+			    
+			    //Wait time
+			    Thread.sleep(2000);
+			    driver.findElement(By.cssSelector("input.btn.btn-primary")).click();
+			    
+
+			    
+
+			    //Verification of empty fields
+			    if(driver.findElement(By.cssSelector("div.text-danger")).getText().contentEquals("First Name must be between 1 and 32 characters!"))
+			    {
+			    	System.out.println("Message is Verified");
+			    }
+			    else
+			    {
+			    	System.out.println("Message is not verified");
+			    }
+			    
+			    
+			    //Last name field kept empty
+			    if(driver.findElement(By.xpath("//fieldset[@id='account']/div[3]/div/div")).getText().contentEquals("Last Name must be between 1 and 32 characters!"))
+			    {
+			    	System.out.println("Last Name is a Mandatory Field Verified");
+			    }
+			    else
+			    {
+			    	System.out.println("Last Name Mandatory is not available");
+			    }
+			    
+			    
+			    //Wrong password entered
+			    driver.findElement(By.id("input-password")).clear();
+			    driver.findElement(By.id("input-password")).sendKeys("venkata@1");
+			    driver.findElement(By.id("input-confirm")).clear();
+			    driver.findElement(By.id("input-confirm")).sendKeys("H123");
+			    Thread.sleep(2000);
+			    driver.findElement(By.cssSelector("input.btn.btn-primary")).click();
+			    
+			    if(driver.findElement(By.xpath("//div[@id='content']/form/fieldset[2]/div[2]/div/div")).getText().contentEquals("Password confirmation does not match password!"))
+			    {
+			    	System.out.println("Message is OK");
+			    }
+			    else
+			    {
+			    	System.out.println("Message is not OK");
+			    }
+			    
+			    
+			    //Entering valid inputs to create account
+			    driver.findElement(By.id("input-firstname")).clear();
+			    driver.findElement(By.id("input-firstname")).sendKeys("chinni");
+			    driver.findElement(By.id("input-lastname")).clear();
+			    driver.findElement(By.id("input-lastname")).sendKeys("preri");
+			    driver.findElement(By.id("input-confirm")).clear();
+			    driver.findElement(By.id("input-confirm")).sendKeys("venkata@1");
+			    
+			    driver.findElement(By.name("newsletter")).click();
+			    driver.findElement(By.xpath("(//input[@name='newsletter'])[2]")).click();
+			    driver.findElement(By.name("agree")).click();
+			    
+			    Thread.sleep(2000);
+			    driver.findElement(By.cssSelector("input.btn.btn-primary")).click();
+			    
+			    
+			    //Wait time
+			    Thread.sleep(2500);
+			    
+			    
+			    //Verification of heading
+			    if(driver.findElement(By.cssSelector("#content > h1")).getText().contentEquals("Your Account Has Been Created!"))
+			    {
+			    	System.out.println("Email Pattern Verified (System Accepts user@domain.com pattern");
+			    	System.out.println("Heading is OK");
+			    }
+			    else
+			    {
+			    	System.out.println("Heading is not OK");
+			    }
+			    
+			    
+			    //clicking on phoe and pdas
+			    driver.findElement(By.linkText("Phones & PDAs")).click();
+			    
+			    //Wait time
+			    Thread.sleep(2000);
+			    driver.findElement(By.cssSelector("div.image > a > img.img-responsive")).click();
+
+			    
+			    //verification of product selected
+			    if(driver.findElement(By.cssSelector("div.col-sm-4 > h1")).getText().contentEquals("HTC Touch HD"))
+			    {
+			    	System.out.println("Product verified");
+			    }
+			    else
+			    {
+			    	System.out.println("Product is Verified");
+			    }
+			    
+			   // Wait time
+			    Thread.sleep(1000);
+			    
+			    //going back on browser
+			    driver.navigate().back();
+			    Thread.sleep(1000);
+			    driver.findElement(By.xpath(".//*[@id='content']/div[2]/div[1]/div/div[2]/div[2]/button[1]")).click();
+			    
+			    
+			    //wait time
+			    Thread.sleep(3000);
+			    
+			    //Addition of product
+			    if(driver.findElement(By.xpath("//div[@id='product-category']/div")).getText().contentEquals("Success: You have added HTC Touch HD to your shopping cart!\n×"))
+			    {
+			    	System.out.println("Product Added Succesfully");
+			    }
+			    else
+			    {
+			    	System.out.println("Product Added  not Succesfully ");
+			    }
+			    	    
+			    driver.findElement(By.linkText("Brands")).click();
+			    if(driver.getTitle().contentEquals("Find Your Favorite Brand"))
+			    {
+			    	System.out.println("Title Verified 	Find Your Favorite Brand");
+			    }
+			    else
+			    {
+			    	System.out.println("Title (Find Your Favorite Brand) Not Verified");
+			    }
+			    
+			    //Selecting Canon product
+			    driver.findElement(By.linkText("Canon")).click();
+			   
+			    //Verification of heading
+			    if(driver.findElement(By.cssSelector("h2")).getText().contentEquals("Canon"))
+			    {
+			    	System.out.println("Heading is OK");
+			    }
+			    else
+			    {
+			    	System.out.println("Heading is not OK");
+			    }
+  
+			    
+			    //Click add to wishlist button
+			    driver.findElement(By.xpath("(//button[@type='button'])[11]")).click();
+			    
+			    //Wait time
+			    Thread.sleep(3000);
+			    
+			    //Verification of wishlist message 
+			    if(driver.findElement(By.xpath("//div[@id='product-manufacturer']/div")).getText().contentEquals("Success: You have added Canon EOS 5D to your wish list!"))
+			    {
+			    	System.out.println("Success message verified");
+			    }
+			    else if(driver.findElement(By.xpath("//div[@id='product-manufacturer']/div")).getText().contentEquals("You must login or create an account to save Canon EOS 5D to your wish list!"))
+			    {
+			    	System.out.println("Success message not verified");
+			    }
+			    
+			    
+			    driver.findElement(By.linkText("Wish List")).click(); 
+			    driver.findElement(By.linkText("Continue")).click();
+			    driver.close();
+			    System.out.println("Browser is Closed.");
+		}
+
+	}

@@ -1,0 +1,57 @@
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class OpenCartJunit {
+//	static chromeProfile profile = new chromeProfile();
+
+	 WebDriver driver = new ChromeDriver(); 
+	
+	@BeforeClass
+	public static void beforeclasstest()
+	{
+		
+		System.setProperty("webdriver.chrome.driver","D:/Kavya Sri Gampala/m4(1)/chromedriver.exe");
+	  }
+	
+	@Before
+	public void beforetest()
+	{
+		System.out.println("Verification Starting.......");
+	}
+	
+	
+	@Test
+	public void test() throws InterruptedException 
+	{
+		String expectedtitle = "Your Store";
+	    driver.get("http://demo.opencart.com/");
+		String  actualtitle = driver.getTitle();
+		System.out.println(actualtitle);
+		assertEquals(expectedtitle, actualtitle);
+	}
+  @Test
+	public void test1() throws InterruptedException 
+	{
+		boolean expectedtext =true;
+	    driver.get("http://demo.opencart.com/");
+	    boolean text4=driver.getPageSource().contains("Desktops");
+	    System.out.println(text4);
+	    assertEquals(expectedtext, text4);
+		
+	}
+	@After
+	public void aftertest()
+	{
+		System.out.println("Verification ended");
+		driver.close();
+		//driver.quit();
+	}
+
+
+}

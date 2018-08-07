@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+<head>
+    <title>Online Cooking Class Enquiry Form</title>
+    <script>
+        function validateFirstName() {
+            var x = document.forms["myForm"]["fname"].value;
+            if (x == "") {
+                alert("First Name must be filled out");
+
+            }
+
+        }
+
+
+        function validateLasttName() {
+            var y = document.forms["myForm"]["lname"].value;
+            if (y == "") {
+                alert("Last Name must be filled out");
+            }
+        }
+
+
+        function validateEmail() {
+            var a = document.forms["myForm"]["email"].value;
+            if (a == "") {
+                alert("Email must be filled out");
+
+            }
+
+        }
+
+
+     function validatMobile() {
+            var b = document.forms["myForm"]["mobile"].value;
+            if (b == "") {
+                alert("Mobile must be filled out");
+
+            }
+            var x = document.forms["myForm"]["mobile"].value;
+          
+            if (isNaN(x) || x.indexOf(" ") != -1) {
+                alert("Enter numeric value")
+                return false;
+            }
+             
+            if (x.length > 10 || x.length < 10) {
+                alert("Enter 10 digit Mobile number");
+                return false;
+            }
+            if (y.charAt(0) != "9") {
+                alert("it should start with 9 ");
+                return false
+            }
+
+
+     }
+
+     function validateForm() {
+         var b = document.forms["myForm"]["enqdetails"].value;
+         if (b == "") {
+             alert("Enquiry details must be filled out");
+             return false;
+         }
+
+
+         alert("Thank you for submitting the online recipe class Enquiry");
+         document.write("<h3>Our location representative will contact you soon.</h3>");
+     }
+
+
+
+</script>
+    <style>
+table, th{
+    border: 2px solid black;
+}
+        .auto-style1
+        {
+            margin-left: 33px;
+            font-weight: bold;
+        }
+        .auto-style2
+        {
+            width: 100px;
+            margin-left: 0px;
+            font-weight: bold;
+        }
+        .auto-style4
+        {
+            font-size: x-large;
+        }
+        .auto-style5
+        {
+            font-size: large;
+        }
+        .auto-style6
+        {
+            width: 131px;
+        }
+        .auto-style7
+        {
+            color: #3333CC;
+        }
+        .auto-style8
+        {
+            width: 119px;
+        }
+    </style>
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:Material_x0020_Type msdt:dt="string">Extra Material</mso:Material_x0020_Type>
+<mso:Category msdt:dt="string">Assessment Component</mso:Category>
+<mso:Level msdt:dt="string">L1</mso:Level>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+<body><form name="myForm"  onsubmit="return validateForm()" method="post">
+    <table align="center">
+        <tr>
+        <td colspan="2"><h3><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="auto-style4">Online Cooking School-Taste of Home &nbsp;</span>&nbsp;&nbsp; </i></h3>
+            <h3><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="auto-style5">&nbsp;&nbsp; <span class="auto-style7">Customer Enquiry Form </span></span></i></h3></td>
+        </tr>
+        <tr>
+        <td><b>First Name*</b></td>
+        <td class="auto-style6"> <input id="fname" name="fname" type="text" onblur="validateFirstName()"/></td>
+        </tr>
+
+        <tr>
+        <td><b>Last Name*</b></td>
+        <td class="auto-style6"> <input id="lname"name="lname" type="text" onblur="validateLasttName()"/></td>
+        </tr>
+
+        <tr>
+        <td><b>EMail*</b></td>
+        <td class="auto-style6"><input id="emails" name="email" type="text"  onblur="validateEmail()" /></td>
+        </tr>
+
+        <tr>
+        <td><b>Mobile*</b></td>
+        <td clospan="2" class="auto-style6"><input id="mobile" name="mobile" type="text" onblur="validatMobile()"/></td>
+   
+        </tr>
+
+        
+        <tr>
+        <td><b>Category of recipes interested*</b></td>
+        <td class="auto-style6"> <select name="D6">
+  <option value="Select">Select</option>
+  <option value="veg">Veg</option>
+  <option value="Nonveg">Non-Veg</option>
+ 
+</select></td>
+        </tr>
+
+
+
+        <tr>
+        <td><b>City Preference*</b></td>
+        <td class="auto-style6"> <select name="D5">
+  <option value="Select">Select</option>
+  <option value="pune">Pune</option>
+  <option value="mumbai">Mumbai</option>
+  <option value="bangalore">Bangalore</option>
+</select></td>
+        </tr>
+
+
+        <tr>
+        <td><b>Mode of Learning*</b></td>
+        <td class="auto-style6"> <select name="D4">
+  <option value="Select">Select</option>
+  <option value="saab">Virtual training</option>
+  <option value="mercedes">In house training</option>
+  <option value="audi">You tube video</option>
+</select></td>
+        </tr>
+
+  <tr>
+        <td><b>Interested Course duration*</b></td>
+        <td class="auto-style6"> <select name="D4">
+  <option value="Select">Select</option>
+  <option value="saab">2 months</option>
+  <option value="mercedes">4 months</option>
+  <option value="audi">6 months</option>
+  <option value="audi"> 1 year </option>
+</select></td>
+        </tr>
+
+
+         <tr>
+        <td><b>Your Enquiry*</b> </td>
+        <td class="auto-style6"><textarea id="enqdetails" cols="20" name="enqdetails" rows="2"></textarea></td>
+        </tr>
+
+         <tr>
+        <td colspan="2"><input id="Submit1" class="auto-style1" type="submit" value="Enquire Now!!!" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="Submit2" class="auto-style2" type="submit" value="Reset" />&nbsp; </td>
+        
+        </tr>
+
+         <tr>
+        <td colspan="2"><a href="mailmsg.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Download our Recipe class Brochure</a>
+        </tr>&nbsp;&nbsp;&nbsp;&nbsp
+
+    </table>
+
+    </form>
+</body>
+</html>
